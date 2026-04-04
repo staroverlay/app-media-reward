@@ -1,0 +1,105 @@
+{
+    "id": "media-reward",
+    "name": "Media Reward",
+    "created_at": "2026-03-31T10:30:00-03:00",
+    "updated_at": "2026-03-31T10:30:00-03:00",
+    "version": "1.0.0",
+    "description": "Spent channel points to play Videos, Sounds or Images",
+    "category": "interactions",
+    "properties": {
+        "integrations": [
+            {
+                "provider": "twitch",
+                "allow_multiple": false,
+                "is_required": true
+            }
+        ]
+    },
+    "settings": [
+        {
+            "id": "global",
+            "type": "group",
+            "label": "Global Configuration",
+            "children": [
+                {
+                    "id": "concurrencyMode",
+                    "type": "select",
+                    "label": "Play Mode",
+                    "description": "How to handle multiple rewards arriving at once",
+                    "default": "Queue",
+                    "options": [
+                        {
+                            "value": "Queue",
+                            "label": "Queue (Sequential)"
+                        },
+                        {
+                            "value": "Only Once",
+                            "label": "Single (Discard others)"
+                        },
+                        {
+                            "value": "Render All",
+                            "label": "Concurrent (All at once)"
+                        }
+                    ]
+                },
+                {
+                    "id": "displayMode",
+                    "type": "select",
+                    "label": "Display Aspect",
+                    "description": "How to position media on screen",
+                    "default": "FitCenter",
+                    "options": [
+                        {
+                            "value": "Fill",
+                            "label": "Fill Screen (Force Fullscreen)"
+                        },
+                        {
+                            "value": "FitCenter",
+                            "label": "Responsive (Fit Center)"
+                        }
+                    ]
+                },
+                {
+                    "id": "imageDuration",
+                    "type": "number",
+                    "label": "Image Duration (sec)",
+                    "description": "How long images stay on screen",
+                    "default": 3,
+                    "num_min": 1,
+                    "num_max": 60
+                }
+            ]
+        },
+        {
+            "id": "rewards",
+            "type": "list",
+            "label": "Rewards",
+            "description": "Map Twitch rewards to media",
+            "item_schema": {
+                "id": "mapping",
+                "type": "object",
+                "fields": [
+                    {
+                        "id": "reward",
+                        "type": "channel-reward",
+                        "label": "Twitch Reward"
+                    },
+                    {
+                        "id": "media",
+                        "type": "media",
+                        "label": "Media Asset"
+                    },
+                    {
+                        "id": "volume",
+                        "type": "number",
+                        "label": "Volume (0-100)",
+                        "default": 100,
+                        "render_as": "slider",
+                        "num_min": 0,
+                        "num_max": 100
+                    }
+                ]
+            }
+        }
+    ]
+}

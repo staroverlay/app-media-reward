@@ -1,0 +1,13 @@
+{
+    "name": "app-media-reward",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@types/node": "^25.5.2",
+        "typescript": "^5.0.0",
+        "vite": "^5.0.0"
+    }
+}
