@@ -26,7 +26,7 @@ function resolveSDK(path: string) {
 
 
 export default defineConfig({
-    base: "./",
+    base: "/widget/media-reward/",
     build: {
         outDir: "dist",
         emptyOutDir: true,
