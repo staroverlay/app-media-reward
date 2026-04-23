@@ -11,6 +11,6 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "@staroverlay/sdk": "latest"
+        "@staroverlay/sdk": "^1.0.3"
     }
 }
