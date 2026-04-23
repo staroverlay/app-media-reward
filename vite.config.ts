@@ -25,16 +25,16 @@ function resolveSDK(path: string) {
 }
 
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
     base: "/widget/media-reward/",
     build: {
         outDir: "dist",
         emptyOutDir: true,
     },
-    resolve: {
+    resolve: mode === "development" ? {
         alias: {
             "@staroverlay/sdk/tmi": resolveSDK("dist/tmi.mjs"),
             "@staroverlay/sdk": resolveSDK("dist/staroverlay.mjs")
         }
-    }
-});
+    } : undefined
+}));
